@@ -29,7 +29,6 @@ public class Computer {
         for (int i = 1; i < 10; i++) {
             randomList.add(i);
         }
-
         return randomList;
     }
 

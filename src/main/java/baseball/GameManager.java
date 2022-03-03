@@ -7,28 +7,30 @@ public class GameManager {
     private int strike;
     private int ball;
     private final String RESTART_GAME = "1";
-    private final String TERMINATE_GAME = "2";
 
     public GameManager() {
-        User user = new User();
-        startGame();
+        startComputer();
+        setUser();
     }
 
-    public void createUserAnswer(String userNumber) {
-        for (int i = 0; i < 3; i++) {
-            userAnswer[i] = userNumber.charAt(i) - '0';
-        }
-        Output.cheatVersion(computerAnswer);
-        playBalls();
-    }
-
-    public void startGame() {
+    private void startComputer() {
         Computer computer = new Computer();
         computerAnswer = computer.getAnswer();
-        createUserAnswer(Input.userNumber());
     }
 
-    public void playBalls() {
+    private void setUser() {
+        User user = new User();
+        userAnswer = user.createUserAnswer(Input.userNumber());
+    }
+
+    public void playGame() {
+        while (gameStatus() == RESTART_GAME) {
+            playBalls();
+
+        }
+    }
+
+    private void playBalls() {
         strike = 0;
         ball = 0;
         for (int i = 0; i < 3; i++) {
@@ -49,29 +51,23 @@ public class GameManager {
         }
     }
 
-    private void gameStatus() {
+    private String gameStatus() {
         if (gameOver() == Output.GAME_FINISH) {
             Output.requestRestart();
             String gameAgain = Input.restartGame();
-
-            if (gameAgain == RESTART_GAME) {
-                startGame();
-            } else if (gameAgain == TERMINATE_GAME) {
-                return;
-            }
-        } else {
-            createUserAnswer(Input.userNumber());
+            return gameAgain;
         }
+        return null;
     }
 
     private int gameOver() {
-        if (result(ball, strike) == Output.GAME_FINISH) {
+        if (result() == Output.GAME_FINISH) {
             return Output.GAME_FINISH;
         }
         return Output.GAME_CONTINUE;
     }
 
-    private int result(int ball, int strike) {
+    private int result() {
         Output.scoreResult(ball, strike);
         return strike;
     }
