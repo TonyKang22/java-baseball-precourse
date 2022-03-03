@@ -10,7 +10,6 @@ public class Input {
     }
 
     public static String restartGame() {
-
         return Console.readLine();
     }
 }

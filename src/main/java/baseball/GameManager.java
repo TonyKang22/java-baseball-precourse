@@ -2,6 +2,7 @@ package baseball;
 
 public class GameManager {
 
+    private ScoreManager sm;
     private int[] userAnswer;
     private int[] computerAnswer;
     private int strike;
@@ -24,51 +25,11 @@ public class GameManager {
     }
 
     public void playGame() {
-        while (gameStatus() == RESTART_GAME) {
-            playBalls();
+        sm = new ScoreManager(computerAnswer, userAnswer);
+        Coin coin = new Coin(computerAnswer, userAnswer);
 
+        while (coin.outOfCoin()) {
+            sm.checkScore();
         }
-    }
-
-    private void playBalls() {
-        strike = 0;
-        ball = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                getScore(i, j);
-            }
-        }
-        gameStatus();
-    }
-
-    private void getScore(int i, int j) {
-        if (computerAnswer[i] == userAnswer[j]) {
-            if (i == j) {
-                ++strike;
-            } else {
-                ++ball;
-            }
-        }
-    }
-
-    private String gameStatus() {
-        if (gameOver() == Output.GAME_FINISH) {
-            Output.requestRestart();
-            String gameAgain = Input.restartGame();
-            return gameAgain;
-        }
-        return null;
-    }
-
-    private int gameOver() {
-        if (result() == Output.GAME_FINISH) {
-            return Output.GAME_FINISH;
-        }
-        return Output.GAME_CONTINUE;
-    }
-
-    private int result() {
-        Output.scoreResult(ball, strike);
-        return strike;
     }
 }
