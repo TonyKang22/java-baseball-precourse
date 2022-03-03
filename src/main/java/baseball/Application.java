@@ -3,7 +3,6 @@ package baseball;
 public class Application {
 
     public static void main(String[] args) {
-        User user = new User();
-        user.startGame();
+        GameManager gm = new GameManager();
     }
 }

@@ -9,6 +9,11 @@ public class GameManager {
     private final String RESTART_GAME = "1";
     private final String TERMINATE_GAME = "2";
 
+    public GameManager() {
+        User user = new User();
+        startGame();
+    }
+
     public void createUserAnswer(String userNumber) {
         for (int i = 0; i < 3; i++) {
             userAnswer[i] = userNumber.charAt(i) - '0';
