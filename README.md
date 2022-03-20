@@ -88,7 +88,7 @@
 <br>
 
 ## 🧾 클래스 다이어그램
-<img width="1558" alt="image" src="https://user-images.githubusercontent.com/86760744/159155676-92235c8f-7998-4dc7-a35d-6b5ed06f45b5.png">
+<img width="1557" alt="image" src="https://user-images.githubusercontent.com/86760744/159160908-dbc60449-c6c4-4002-b234-9ad990cc68f3.png">
 
 ---
 
