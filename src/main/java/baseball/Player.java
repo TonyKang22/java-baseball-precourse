@@ -17,7 +17,7 @@ public class Player {
         return playerInput.inputPlayerAnswer();
     }
 
-    public boolean askForMore() {
+    public boolean askForAnotherRound() {
         playerOutput.printAskMore();
         return playerInput.anotherRound();
     }

@@ -9,32 +9,28 @@ public class Output {
     private final String BALL = "볼";
     private final String NOTHING = "낫싱";
     private final String SPACE = " ";
-    private StringBuilder sb;
 
     public Output() {
-        sb = new StringBuilder();
     }
 
     public void printAnswerRequest() {
-        sb.append(TYPE_IN_NUMBERS);
-        System.out.print(sb);
+        System.out.print(TYPE_IN_NUMBERS);
     }
 
     public void printAskMore() {
-        sb.append(CONGRATES).append(TYPE_IN_FOR_MORE);
-        System.out.println(sb);
+        System.out.println(CONGRATES + TYPE_IN_FOR_MORE);
     }
 
     public void printScore(int strike, int ball) {
         if (strike != 0 && ball != 0) {
-            sb.append(ball + BALL).append(SPACE).append(strike + STRIKE);
+            System.out.println(ball + BALL + SPACE + strike + STRIKE);
         } else if (strike != 0 && ball == 0) {
-            sb.append(strike + STRIKE);
+            System.out.println(strike + STRIKE);
         } else if (ball != 0 && strike == 0) {
-            sb.append(ball + BALL);
+            System.out.println(ball + BALL);
         } else {
-            sb.append(NOTHING);
+            System.out.println(NOTHING);
         }
-        System.out.println(sb);
     }
+
 }
