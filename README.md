@@ -86,7 +86,7 @@
 - 예외 처리 ('플레이어 답 입력', '재시작 유무 입력' 시)
 
 ## 🧾 Class Diagram
-![](../../../../Downloads/BaseballGame_Class_Diagram.jpg)
+<img width="1558" alt="image" src="https://user-images.githubusercontent.com/86760744/159155676-92235c8f-7998-4dc7-a35d-6b5ed06f45b5.png">
 
 ---
 
