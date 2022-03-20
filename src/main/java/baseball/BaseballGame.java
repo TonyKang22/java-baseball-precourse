@@ -9,23 +9,17 @@ import java.util.Set;
 
 public class BaseballGame {
 
-    private final int NUMBER_RANGE_START = 1;
-    private final int NUMBER_RANGE_END = 9;
-    private final int DIGIT_NUMBER = 3;
-    private final int WINNER = 3;
-
     public BaseballGame() {
-
     }
 
     public List<Integer> makeRandomNumber() {
-        int answer = Randoms.pickNumberInRange(NUMBER_RANGE_START, NUMBER_RANGE_END);
+        int answer = Randoms.pickNumberInRange(Constants.NUMBER_RANGE_START, Constants.NUMBER_RANGE_END);
         List<Integer> answerList = new ArrayList<>();
         Set<Integer> answerSet = new HashSet<>();
 
-        while (answerSet.size() < DIGIT_NUMBER) {
+        while (answerSet.size() < Constants.DIGIT_NUMBER) {
             if (answerSet.contains(answer)) {
-                answer = Randoms.pickNumberInRange(NUMBER_RANGE_START, NUMBER_RANGE_END);
+                answer = Randoms.pickNumberInRange(Constants.NUMBER_RANGE_START, Constants.NUMBER_RANGE_END);
             } else {
                 answerSet.add(answer);
                 answerList.add(answer);
@@ -38,7 +32,7 @@ public class BaseballGame {
         int strike = 0;
         int ball = 0;
 
-        for (int i = 0; i < DIGIT_NUMBER; ++i) {
+        for (int i = 0; i < Constants.DIGIT_NUMBER; ++i) {
             if (answerList.get(i) == playerAnswer.get(i)) {
                 ++strike;
                 continue;
@@ -57,6 +51,6 @@ public class BaseballGame {
     }
 
     public boolean threeStrike(Grade grade) {
-        return grade.getStrike() == WINNER;
+        return grade.getStrike() == Constants.WINNER;
     }
 }
